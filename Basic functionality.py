@@ -2,7 +2,7 @@ import math
 
 #Functionality 1
 def func1():
-    #Validation
+    #input validation
     positive = False
     while positive == False:
         inpt1 = input("Enter X:")
@@ -21,7 +21,7 @@ def func1():
 
 #Functionality 2
 def func2():
-    #validation
+    #Input validation
     positive = False
     while positive == False:
         inpt = input("Enter Z:")
@@ -37,5 +37,12 @@ def func2():
     X = W - Y
     return X,Y
 
-print("Z = ",func1())
-print("π",func2())
+while True:
+    print("Enter 1 for encoding, 0 for decoding.")
+    f = int(input(":"))
+    if f == 1:
+        print("Z = ",func1())
+    elif f == 0:
+        print("π",func2())
+    else:
+        print("invalid")
