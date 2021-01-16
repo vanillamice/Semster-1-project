@@ -1,7 +1,7 @@
 import math
 
 #Functionality 1
-def func1():
+def encoder():
     #input validation
     positive = False
     while positive == False:
@@ -11,16 +11,17 @@ def func1():
             positive = True
             X = int(inpt1)
             Y = int(inpt2)
+            #Logic
+            bracket1 = (X + Y + 1)
+            bracket2 = (X + Y)
+            Z = (bracket1 * bracket2 / 2) + Y
+            return Z
+            break
         else:
             print("Please enter positive integers!!")
-    #Logic
-    bracket1 = (X + Y + 1)
-    bracket2 = (X + Y)
-    Z = (bracket1 * bracket2 / 2) + Y
-    return Z
 
 #Functionality 2
-def func2():
+def decoder():
     #Input validation
     positive = False
     while positive == False:
@@ -28,21 +29,24 @@ def func2():
         if  inpt.isnumeric() and inpt != "0":
             positive = True
             Z = int(inpt)
+             #Logic
+            W = math.floor(((math.sqrt(8*Z+1) - 1) / 2))
+            T = (math.pow(W,2)+ W)/2
+            Y = Z - T
+            X = W - Y
+            return X,Y
         else:
             print("Please enter a positive integer!!")
-    #Logic
-    W = math.floor(((math.sqrt(8*Z+1) - 1) / 2))
-    T = (W**2 + W)/2
-    Y = Z - T
-    X = W - Y
-    return X,Y
-
+   
+#to drive the code without the
 while True:
     print("Enter 1 for encoding, 0 for decoding.")
     f = int(input(":"))
     if f == 1:
-        print("Z = ",func1())
+        print("Z = ",encoder())
     elif f == 0:
-        print("π",func2())
+        print("π",decoder())
+        break
     else:
         print("invalid")
+        break
